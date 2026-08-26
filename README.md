@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🚀 Full-Stack ESP32 IoT Dashboard
 
-## Getting Started
+A real-time telemetry monitoring platform built with **Next.js**, **PostgreSQL (Supabase)**, and an **ESP32 microcontroller**. 
 
-First, run the development server:
+Hardware metrics are gathered over Wi-Fi, saved to a cloud database, and visualized dynamically using time-series graphs.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack & Architecture
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- **Hardware / Embedded:** ESP32 DevKit, C++, Arduino Framework (`HTTPClient.h`, `ArduinoJson.h`)
+- **Frontend UI:** Next.js (App Router), React, Tailwind CSS, Recharts
+- **Backend API:** Next.js Route Handlers (`/api/telemetry`)
+- **Database:** Supabase (PostgreSQL)
+- **Deployment:** Vercel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 📊 Monitored Metrics
 
-To learn more about Next.js, take a look at the following resources:
+- **Chip Temperature:** Internal thermal readings (°C)
+- **RAM Memory:** Real-time Free Heap RAM & Lowest Recorded Threshold (KB)
+- **Wi-Fi Signal:** RSSI Connection Strength (dBm)
+- **Capacitive Touch:** Real-time touch event detection (GPIO 4)
+- **System Uptime:** Board runtime counter (seconds)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ⚡ Setup & Local Development
 
-## Deploy on Vercel
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/Extrem5/Esp32-Dashboard.git](https://github.com/Extrem5/Esp32-Dashboard.git)
+   cd Esp32-Dashboard
+2. **Install dependencies:**
+npm install
+3. **Configure Environment Variables:**
+Create a .env.local file in the root directory:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. :**Run local server::**
+npx next dev -H 0.0.0.0 -p 3000
+---
+
+### Step 2: Complete Your Vercel Deployment
+
+Now that your repository is ready and you're logged into Vercel:
+
+1. Click **Add New... > Project** in your Vercel Dashboard.
+2. Under **Import Git Repository**, select **`Esp32-Dashboard`** and click **Import**.
+3. Expand **Environment Variables** and add your two Supabase keys:
+   * Key: `NEXT_PUBLIC_SUPABASE_URL` | Value: *(Your Supabase URL)*
+   * Key: `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Value: *(Your Supabase Anon Key)*
+4. Click **Deploy**!
+
+
