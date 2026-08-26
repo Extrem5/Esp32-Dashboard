@@ -44,15 +44,5 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 npx next dev -H 0.0.0.0 -p 3000
 ---
 
-### Step 2: Complete Your Vercel Deployment
-
-Now that your repository is ready and you're logged into Vercel:
-
-1. Click **Add New... > Project** in your Vercel Dashboard.
-2. Under **Import Git Repository**, select **`Esp32-Dashboard`** and click **Import**.
-3. Expand **Environment Variables** and add your two Supabase keys:
-   * Key: `NEXT_PUBLIC_SUPABASE_URL` | Value: *(Your Supabase URL)*
-   * Key: `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Value: *(Your Supabase Anon Key)*
-4. Click **Deploy**!
 
 
